@@ -18,13 +18,13 @@
 				<input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="zadanie-lista">
-					<li class="todo" v-for="todo in filteredTodos" :key="todo.id" :class="{completed: todo.completed, editing: todo == poEdycjiZadanie}">
+					<li class="zadanie" v-for="zadanie in filteredTodos" :key="zadanie.id" :class="{completed: zadanie.completed, editing: zadanie == poEdycjiZadanie}">
 						<div class="view">
-							<input class="toggle" type="checkbox" v-model="todo.completed">
-							<label @dblclick="edycjaZadanie(todo)">{{todo.title}}</label>
-							<button class="destroy" @click="removeTodo(todo)"></button>
+							<input class="toggle" type="checkbox" v-model="zadanie.completed">
+							<label @dblclick="edycjaZadanie(zadanie)">{{zadanie.title}}</label>
+							<button class="destroy" @click="removeTodo(zadanie)"></button>
 						</div>
-						<input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == poEdycjiZadanie" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+						<input class="edit" type="text" v-model="zadanie.title" v-todo-focus="zadanie == poEdycjiZadanie" @blur="doneEdit(zadanie)" @keyup.enter="doneEdit(zadanie)" @keyup.esc="cancelEdit(zadanie)">
 					</li>
 				</ul>
 			</section>
@@ -33,9 +33,9 @@
 					<strong v-text="remaining"></strong> {{pluralize('item', remaining)}} left
 				</span>
 				<ul class="filters">
-					<li><a href="#/all" :class="{selected: visibility == 'all'}">All</a></li>
-					<li><a href="#/active" :class="{selected: visibility == 'active'}">Active</a></li>
-					<li><a href="#/completed" :class="{selected: visibility == 'completed'}">Completed</a></li>
+					<li><a href="#/all" :class="{selected: widocznosc == 'all'}">All</a></li>
+					<li><a href="#/active" :class="{selected: widocznosc == 'active'}">Active</a></li>
+					<li><a href="#/completed" :class="{selected: widocznosc == 'completed'}">Completed</a></li>
 				</ul>
 				<button class="clear-completed" @click="removeCompleted" v-show="zadania.length > remaining">
 					Clear completed

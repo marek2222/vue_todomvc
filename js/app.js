@@ -9,13 +9,13 @@
 			return zadania;
 		},
 		active: function (zadania) {
-			return zadania.filter(function (todo) {
-				return !todo.completed;
+			return zadania.filter(function (zadanie) {
+				return !zadanie.completed;
 			});
 		},
 		completed: function (zadania) {
-			return zadania.filter(function (todo) {
-				return todo.completed;
+			return zadania.filter(function (zadanie) {
+				return zadanie.completed;
 			});
 		}
 	};
@@ -30,7 +30,7 @@
 			zadania: todoStorage.fetch(),
 			noweZadanie: '',
 			poEdycjiZadanie: null,
-			visibility: 'all'
+			widocznosc: 'all'
 		},
 
 		// watch todos change for localStorage persistence
@@ -45,7 +45,7 @@
 		// http://vuejs.org/guide/computed.html
 		computed: {
 			filteredTodos: function () {
-				return filters[this.visibility](this.zadania);
+				return filters[this.widocznosc](this.zadania);
 			},
 			remaining: function () {
 				return filters.active(this.zadania).length;
@@ -55,8 +55,8 @@
 					return this.remaining === 0;
 				},
 				set: function (value) {
-					this.zadania.forEach(function (todo) {
-						todo.completed = value;
+					this.zadania.forEach(function (zadanie) {
+						zadanie.completed = value;
 					});
 				}
 			}
@@ -79,30 +79,30 @@
 				this.noweZadanie = '';
 			},
 
-			removeTodo: function (todo) {
-				var index = this.zadania.indexOf(todo);
+			removeTodo: function (zadanie) {
+				var index = this.zadania.indexOf(zadanie);
 				this.zadania.splice(index, 1);
 			},
 
-			edycjaZadanie	: function (todo) {
-				this.beforeEditCache = todo.title;
-				this.poEdycjiZadanie = todo;
+			edycjaZadanie	: function (zadanie) {
+				this.beforeEditCache = zadanie.title;
+				this.poEdycjiZadanie = zadanie;
 			},
 
-			doneEdit: function (todo) {
+			doneEdit: function (zadanie) {
 				if (!this.poEdycjiZadanie) {
 					return;
 				}
 				this.poEdycjiZadanie = null;
-				todo.title = todo.title.trim();
-				if (!todo.title) {
-					this.removeTodo(todo);
+				zadanie.title = zadanie.title.trim();
+				if (!zadanie.title) {
+					this.removeTodo(zadanie);
 				}
 			},
 
-			cancelEdit: function (todo) {
+			cancelEdit: function (zadanie) {
 				this.poEdycjiZadanie = null;
-				todo.title = this.beforeEditCache;
+				zadanie.title = this.beforeEditCache;
 			},
 
 			removeCompleted: function () {

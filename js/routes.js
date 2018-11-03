@@ -6,16 +6,16 @@
 
 	var router = new Router();
 
-	['all', 'active', 'completed'].forEach(function (visibility) {
-		router.on(visibility, function () {
-			app.visibility = visibility;
+	['all', 'active', 'completed'].forEach(function (widocznosc) {
+		router.on(widocznosc, function () {
+			app.widocznosc = widocznosc;
 		});
 	});
 
 	router.configure({
 		notfound: function () {
 			window.location.hash = '';
-			app.visibility = 'all';
+			app.widocznosc = 'all';
 		}
 	});
 
