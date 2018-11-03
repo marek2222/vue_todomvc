@@ -6,7 +6,7 @@
 
 	var router = new Router();
 
-	['wszystkie', 'active', 'completed'].forEach(function (widocznosc) {
+	['wszystkie', 'aktywne', 'completed'].forEach(function (widocznosc) {
 		router.on(widocznosc, function () {
 			app.widocznosc = widocznosc;
 		});

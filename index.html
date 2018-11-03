@@ -36,7 +36,7 @@
 				</span>
 				<ul class="filtry">
 					<li><a href="#/wszystkie" :class="{zaznaczone: widocznosc == 'wszystkie'}">Wszystkie</a></li>
-					<li><a href="#/active" :class="{zaznaczone: widocznosc == 'active'}">Aktywne</a></li>
+					<li><a href="#/aktywne" :class="{zaznaczone: widocznosc == 'aktywne'}">Aktywne</a></li>
 					<li><a href="#/completed" :class="{zaznaczone: widocznosc == 'completed'}">Ukończone</a></li>
 				</ul>
 				<button class="usun-ukonczone" @click="usunUkonczone" v-show="zadania.length > pozostalo">

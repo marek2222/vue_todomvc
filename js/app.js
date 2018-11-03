@@ -8,7 +8,7 @@
 		wszystkie: function (zadania) {
 			return zadania;
 		},
-		active: function (zadania) {
+		aktywne: function (zadania) {
 			return zadania.filter(function (zadanie) {
 				return !zadanie.ukonczone;
 			});
@@ -48,7 +48,7 @@
 				return filtry[this.widocznosc](this.zadania);
 			},
 			pozostalo: function () {
-				return filtry.active(this.zadania).length;
+				return filtry.aktywne(this.zadania).length;
 			},
 			wszUkoncz: {
 				get: function () {
@@ -106,7 +106,7 @@
 			},
 
 			usunUkonczone: function () {
-				this.zadania = filtry.active(this.zadania);
+				this.zadania = filtry.aktywne(this.zadania);
 			}
 		},
 
