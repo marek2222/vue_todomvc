@@ -5,7 +5,7 @@
 	'use strict';
 
 	var filtry = {
-		all: function (zadania) {
+		wszystkie: function (zadania) {
 			return zadania;
 		},
 		active: function (zadania) {
@@ -30,7 +30,7 @@
 			zadania: todoStorage.fetch(),
 			noweZadanie: '',
 			poEdycjiZadanie: null,
-			widocznosc: 'all'
+			widocznosc: 'wszystkie'
 		},
 
 		// watch todos change for localStorage persistence
