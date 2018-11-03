@@ -50,7 +50,7 @@
 			pozostalo: function () {
 				return filters.active(this.zadania).length;
 			},
-			allDone: {
+			wszUkoncz: {
 				get: function () {
 					return this.pozostalo === 0;
 				},
@@ -70,7 +70,7 @@
 				return word + (count === 1 ? '' : '');
 			},
 
-			addTodo: function () {
+			dodajZadanie: function () {
 				var value = this.noweZadanie && this.noweZadanie.trim();
 				if (!value) {
 					return;
@@ -89,7 +89,7 @@
 				this.poEdycjiZadanie = zadanie;
 			},
 
-			doneEdit: function (zadanie) {
+			poEdycji: function (zadanie) {
 				if (!this.poEdycjiZadanie) {
 					return;
 				}
