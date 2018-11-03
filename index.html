@@ -12,9 +12,9 @@
 			<header class="glowka">
 				<h1>Lista zadań</h1>
 				<input class="nowe-zadanie" autofocus autocomplete="off" placeholder="Co potrzebujesz zrobić?" 
-					v-model="newTodo" @keyup.enter="addTodo">
+					v-model="noweZadanie" @keyup.enter="addTodo">
 			</header>
-			<section class="main" v-show="todos.length">
+			<section class="main" v-show="zadania.length">
 				<input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="todo-list">
@@ -28,7 +28,7 @@
 					</li>
 				</ul>
 			</section>
-			<footer class="footer" v-show="todos.length">
+			<footer class="footer" v-show="zadania.length">
 				<span class="todo-count">
 					<strong v-text="remaining"></strong> {{pluralize('item', remaining)}} left
 				</span>
@@ -37,7 +37,7 @@
 					<li><a href="#/active" :class="{selected: visibility == 'active'}">Active</a></li>
 					<li><a href="#/completed" :class="{selected: visibility == 'completed'}">Completed</a></li>
 				</ul>
-				<button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
+				<button class="clear-completed" @click="removeCompleted" v-show="zadania.length > remaining">
 					Clear completed
 				</button>
 			</footer>

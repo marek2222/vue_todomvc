@@ -5,16 +5,16 @@
 	'use strict';
 
 	var filters = {
-		all: function (todos) {
-			return todos;
+		all: function (zadania) {
+			return zadania;
 		},
-		active: function (todos) {
-			return todos.filter(function (todo) {
+		active: function (zadania) {
+			return zadania.filter(function (todo) {
 				return !todo.completed;
 			});
 		},
-		completed: function (todos) {
-			return todos.filter(function (todo) {
+		completed: function (zadania) {
+			return zadania.filter(function (todo) {
 				return todo.completed;
 			});
 		}
@@ -27,15 +27,15 @@
 
 		// app initial state
 		data: {
-			todos: todoStorage.fetch(),
-			newTodo: '',
+			zadania: todoStorage.fetch(),
+			noweZadanie: '',
 			editedTodo: null,
 			visibility: 'all'
 		},
 
 		// watch todos change for localStorage persistence
 		watch: {
-			todos: {
+			zadania: {
 				deep: true,
 				handler: todoStorage.save
 			}
@@ -45,17 +45,17 @@
 		// http://vuejs.org/guide/computed.html
 		computed: {
 			filteredTodos: function () {
-				return filters[this.visibility](this.todos);
+				return filters[this.visibility](this.zadania);
 			},
 			remaining: function () {
-				return filters.active(this.todos).length;
+				return filters.active(this.zadania).length;
 			},
 			allDone: {
 				get: function () {
 					return this.remaining === 0;
 				},
 				set: function (value) {
-					this.todos.forEach(function (todo) {
+					this.zadania.forEach(function (todo) {
 						todo.completed = value;
 					});
 				}
@@ -71,17 +71,17 @@
 			},
 
 			addTodo: function () {
-				var value = this.newTodo && this.newTodo.trim();
+				var value = this.noweZadanie && this.noweZadanie.trim();
 				if (!value) {
 					return;
 				}
-				this.todos.push({ id: this.todos.length + 1, title: value, completed: false });
-				this.newTodo = '';
+				this.zadania.push({ id: this.zadania.length + 1, title: value, completed: false });
+				this.noweZadanie = '';
 			},
 
 			removeTodo: function (todo) {
-				var index = this.todos.indexOf(todo);
-				this.todos.splice(index, 1);
+				var index = this.zadania.indexOf(todo);
+				this.zadania.splice(index, 1);
 			},
 
 			editTodo: function (todo) {
@@ -106,7 +106,7 @@
 			},
 
 			removeCompleted: function () {
-				this.todos = filters.active(this.todos);
+				this.zadania = filters.active(this.zadania);
 			}
 		},
 
