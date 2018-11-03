@@ -6,7 +6,7 @@
 
 	var STORAGE_KEY = 'todos-vuejs';
 
-	exports.todoStorage = {
+	exports.skladZadan = {
 		fetch: function () {
 			return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 		},

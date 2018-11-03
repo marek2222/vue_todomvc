@@ -27,7 +27,7 @@
 
 		// app initial state
 		data: {
-			zadania: todoStorage.fetch(),
+			zadania: skladZadan.fetch(),
 			noweZadanie: '',
 			poEdycjiZadanie: null,
 			widocznosc: 'wszystkie'
@@ -37,7 +37,7 @@
 		watch: {
 			zadania: {
 				deep: true,
-				handler: todoStorage.save
+				handler: skladZadan.save
 			}
 		},
 
