@@ -105,7 +105,7 @@
 				zadanie.title = this.beforeEditCache;
 			},
 
-			removeCompleted: function () {
+			usunUkonczone: function () {
 				this.zadania = filters.active(this.zadania);
 			}
 		},

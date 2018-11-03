@@ -37,8 +37,8 @@
 					<li><a href="#/active" :class="{selected: widocznosc == 'active'}">Active</a></li>
 					<li><a href="#/completed" :class="{selected: widocznosc == 'completed'}">Completed</a></li>
 				</ul>
-				<button class="clear-completed" @click="removeCompleted" v-show="zadania.length > pozostalo">
-					Clear completed
+				<button class="usun-ukonczone" @click="usunUkonczone" v-show="zadania.length > pozostalo">
+					Usuń ukończone
 				</button>
 			</footer>
 		</section>
