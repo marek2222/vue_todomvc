@@ -29,7 +29,7 @@
 		data: {
 			zadania: todoStorage.fetch(),
 			noweZadanie: '',
-			editedTodo: null,
+			poEdycjiZadanie: null,
 			visibility: 'all'
 		},
 
@@ -84,16 +84,16 @@
 				this.zadania.splice(index, 1);
 			},
 
-			editTodo: function (todo) {
+			edycjaZadanie	: function (todo) {
 				this.beforeEditCache = todo.title;
-				this.editedTodo = todo;
+				this.poEdycjiZadanie = todo;
 			},
 
 			doneEdit: function (todo) {
-				if (!this.editedTodo) {
+				if (!this.poEdycjiZadanie) {
 					return;
 				}
-				this.editedTodo = null;
+				this.poEdycjiZadanie = null;
 				todo.title = todo.title.trim();
 				if (!todo.title) {
 					this.removeTodo(todo);
@@ -101,7 +101,7 @@
 			},
 
 			cancelEdit: function (todo) {
-				this.editedTodo = null;
+				this.poEdycjiZadanie = null;
 				todo.title = this.beforeEditCache;
 			},
 

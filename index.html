@@ -18,13 +18,13 @@
 				<input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="zadanie-lista">
-					<li class="todo" v-for="todo in filteredTodos" :key="todo.id" :class="{completed: todo.completed, editing: todo == editedTodo}">
+					<li class="todo" v-for="todo in filteredTodos" :key="todo.id" :class="{completed: todo.completed, editing: todo == poEdycjiZadanie}">
 						<div class="view">
 							<input class="toggle" type="checkbox" v-model="todo.completed">
-							<label @dblclick="editTodo(todo)">{{todo.title}}</label>
+							<label @dblclick="edycjaZadanie(todo)">{{todo.title}}</label>
 							<button class="destroy" @click="removeTodo(todo)"></button>
 						</div>
-						<input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == editedTodo" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
+						<input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == poEdycjiZadanie" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
 					</li>
 				</ul>
 			</section>
