@@ -4,7 +4,7 @@
 
 	'use strict';
 
-	var filters = {
+	var filtry = {
 		all: function (zadania) {
 			return zadania;
 		},
@@ -45,10 +45,10 @@
 		// http://vuejs.org/guide/computed.html
 		computed: {
 			filtrowaneZadania: function () {
-				return filters[this.widocznosc](this.zadania);
+				return filtry[this.widocznosc](this.zadania);
 			},
 			pozostalo: function () {
-				return filters.active(this.zadania).length;
+				return filtry.active(this.zadania).length;
 			},
 			wszUkoncz: {
 				get: function () {
@@ -85,7 +85,7 @@
 			},
 
 			edycjaZadanie: function (zadanie) {
-				this.beforeEditCache = zadanie.title;
+				this.przedEdycjaZadanie = zadanie.title;
 				this.poEdycjiZadanie = zadanie;
 			},
 
@@ -100,13 +100,13 @@
 				}
 			},
 
-			cancelEdit: function (zadanie) {
+			wycofajEdycje: function (zadanie) {
 				this.poEdycjiZadanie = null;
-				zadanie.title = this.beforeEditCache;
+				zadanie.title = this.przedEdycjaZadanie;
 			},
 
 			usunUkonczone: function () {
-				this.zadania = filters.active(this.zadania);
+				this.zadania = filtry.active(this.zadania);
 			}
 		},
 

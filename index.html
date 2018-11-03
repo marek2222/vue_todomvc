@@ -26,7 +26,7 @@
 							<button class="usunZadanie" @click="usunZadanie(zadanie)"></button>
 						</div>
 						<input class="edit" type="text" v-model="zadanie.title" v-todo-focus="zadanie == poEdycjiZadanie" 
-							@blur="poEdycji(zadanie)" @keyup.enter="poEdycji(zadanie)" @keyup.esc="cancelEdit(zadanie)">
+							@blur="poEdycji(zadanie)" @keyup.enter="poEdycji(zadanie)" @keyup.esc="wycofajEdycje(zadanie)">
 					</li>
 				</ul>
 			</section>
@@ -34,7 +34,7 @@
 				<span class="zadanie-liczba">
 					<strong v-text="pozostalo"></strong> {{liczbaMnoga('', pozostalo)}} do wykonania
 				</span>
-				<ul class="filters">
+				<ul class="filtry">
 					<li><a href="#/all" :class="{zaznaczone: widocznosc == 'all'}">Wszystkie</a></li>
 					<li><a href="#/active" :class="{zaznaczone: widocznosc == 'active'}">Aktywne</a></li>
 					<li><a href="#/completed" :class="{zaznaczone: widocznosc == 'completed'}">Ukończone</a></li>
