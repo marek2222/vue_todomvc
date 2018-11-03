@@ -47,12 +47,12 @@
 			filteredTodos: function () {
 				return filters[this.widocznosc](this.zadania);
 			},
-			remaining: function () {
+			pozostalo: function () {
 				return filters.active(this.zadania).length;
 			},
 			allDone: {
 				get: function () {
-					return this.remaining === 0;
+					return this.pozostalo === 0;
 				},
 				set: function (value) {
 					this.zadania.forEach(function (zadanie) {
@@ -66,8 +66,8 @@
 		// note there's no DOM manipulation here at all.
 		methods: {
 
-			pluralize: function (word, count) {
-				return word + (count === 1 ? '' : 's');
+			liczbaMnoga: function (word, count) {
+				return word + (count === 1 ? '' : '');
 			},
 
 			addTodo: function () {
@@ -84,7 +84,7 @@
 				this.zadania.splice(index, 1);
 			},
 
-			edycjaZadanie	: function (zadanie) {
+			edycjaZadanie: function (zadanie) {
 				this.beforeEditCache = zadanie.title;
 				this.poEdycjiZadanie = zadanie;
 			},
