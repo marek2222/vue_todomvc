@@ -44,7 +44,7 @@
 		// computed properties
 		// http://vuejs.org/guide/computed.html
 		computed: {
-			filteredTodos: function () {
+			filtrowaneZadania: function () {
 				return filters[this.widocznosc](this.zadania);
 			},
 			pozostalo: function () {
