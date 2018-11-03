@@ -10,12 +10,12 @@
 		},
 		active: function (zadania) {
 			return zadania.filter(function (zadanie) {
-				return !zadanie.completed;
+				return !zadanie.ukonczone;
 			});
 		},
 		completed: function (zadania) {
 			return zadania.filter(function (zadanie) {
-				return zadanie.completed;
+				return zadanie.ukonczone;
 			});
 		}
 	};
@@ -56,7 +56,7 @@
 				},
 				set: function (value) {
 					this.zadania.forEach(function (zadanie) {
-						zadanie.completed = value;
+						zadanie.ukonczone = value;
 					});
 				}
 			}
@@ -79,7 +79,7 @@
 				this.noweZadanie = '';
 			},
 
-			removeTodo: function (zadanie) {
+			usunZadanie: function (zadanie) {
 				var index = this.zadania.indexOf(zadanie);
 				this.zadania.splice(index, 1);
 			},
@@ -96,7 +96,7 @@
 				this.poEdycjiZadanie = null;
 				zadanie.title = zadanie.title.trim();
 				if (!zadanie.title) {
-					this.removeTodo(zadanie);
+					this.usunZadanie(zadanie);
 				}
 			},
 
