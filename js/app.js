@@ -75,7 +75,7 @@
 				if (!value) {
 					return;
 				}
-				this.zadania.push({ id: this.zadania.length + 1, title: value, completed: false });
+				this.zadania.push({ id: this.zadania.length + 1, tytul: value, completed: false });
 				this.noweZadanie = '';
 			},
 
@@ -85,7 +85,7 @@
 			},
 
 			edycjaZadanie: function (zadanie) {
-				this.przedEdycjaZadanie = zadanie.title;
+				this.przedEdycjaZadanie = zadanie.tytul;
 				this.poEdycjiZadanie = zadanie;
 			},
 
@@ -94,15 +94,15 @@
 					return;
 				}
 				this.poEdycjiZadanie = null;
-				zadanie.title = zadanie.title.trim();
-				if (!zadanie.title) {
+				zadanie.tytul = zadanie.tytul.trim();
+				if (!zadanie.tytul) {
 					this.usunZadanie(zadanie);
 				}
 			},
 
 			wycofajEdycje: function (zadanie) {
 				this.poEdycjiZadanie = null;
-				zadanie.title = this.przedEdycjaZadanie;
+				zadanie.tytul = this.przedEdycjaZadanie;
 			},
 
 			usunUkonczone: function () {

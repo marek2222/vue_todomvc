@@ -22,10 +22,10 @@
 						:class="{cUkonczone: zadanie.ukonczone, edytowane: zadanie == poEdycjiZadanie}">
 						<div class="view">
 							<input class="toggle" type="checkbox" v-model="zadanie.ukonczone">
-							<label @dblclick="edycjaZadanie(zadanie)">{{zadanie.title}}</label>
+							<label @dblclick="edycjaZadanie(zadanie)">{{zadanie.tytul}}</label>
 							<button class="usunZadanie" @click="usunZadanie(zadanie)"></button>
 						</div>
-						<input class="edit" type="text" v-model="zadanie.title" v-todo-focus="zadanie == poEdycjiZadanie" 
+						<input class="edit" type="text" v-model="zadanie.tytul" v-todo-focus="zadanie == poEdycjiZadanie" 
 							@blur="poEdycji(zadanie)" @keyup.enter="poEdycji(zadanie)" @keyup.esc="wycofajEdycje(zadanie)">
 					</li>
 				</ul>
