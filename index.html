@@ -8,10 +8,10 @@
 		<style> [v-cloak] { display: none; } </style>
 	</head>
 	<body>
-		<section class="todoapp" v-cloak>
-			<header class="header">
+		<section class="listazadan" v-cloak>
+			<header class="glowka">
 				<h1>Lista zadań</h1>
-				<input class="new-todo" autofocus autocomplete="off" placeholder="Co potrzebujesz zrobić?" 
+				<input class="nowe-zadanie" autofocus autocomplete="off" placeholder="Co potrzebujesz zrobić?" 
 					v-model="newTodo" @keyup.enter="addTodo">
 			</header>
 			<section class="main" v-show="todos.length">
