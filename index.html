@@ -18,13 +18,15 @@
 				<input id="toggle-all" class="toggle-all" type="checkbox" v-model="wszUkoncz">
 				<label for="toggle-all">Zaznacz wszystkie jako ukończone</label>
 				<ul class="zadanie-lista">
-					<li class="zadanie" v-for="zadanie in filtrowaneZadania" :key="zadanie.id" :class="{completed: zadanie.ukonczone, editing: zadanie == poEdycjiZadanie}">
+					<li class="zadanie" v-for="zadanie in filtrowaneZadania" :key="zadanie.id" 
+						:class="{cUkonczone: zadanie.ukonczone, edytowane: zadanie == poEdycjiZadanie}">
 						<div class="view">
 							<input class="toggle" type="checkbox" v-model="zadanie.ukonczone">
 							<label @dblclick="edycjaZadanie(zadanie)">{{zadanie.title}}</label>
 							<button class="usunZadanie" @click="usunZadanie(zadanie)"></button>
 						</div>
-						<input class="edit" type="text" v-model="zadanie.title" v-todo-focus="zadanie == poEdycjiZadanie" @blur="poEdycji(zadanie)" @keyup.enter="poEdycji(zadanie)" @keyup.esc="cancelEdit(zadanie)">
+						<input class="edit" type="text" v-model="zadanie.title" v-todo-focus="zadanie == poEdycjiZadanie" 
+							@blur="poEdycji(zadanie)" @keyup.enter="poEdycji(zadanie)" @keyup.esc="cancelEdit(zadanie)">
 					</li>
 				</ul>
 			</section>
@@ -33,9 +35,9 @@
 					<strong v-text="pozostalo"></strong> {{liczbaMnoga('', pozostalo)}} do wykonania
 				</span>
 				<ul class="filters">
-					<li><a href="#/all" :class="{selected: widocznosc == 'all'}">Wszystkie</a></li>
-					<li><a href="#/active" :class="{selected: widocznosc == 'active'}">Aktywne</a></li>
-					<li><a href="#/completed" :class="{selected: widocznosc == 'completed'}">Ukończone</a></li>
+					<li><a href="#/all" :class="{zaznaczone: widocznosc == 'all'}">Wszystkie</a></li>
+					<li><a href="#/active" :class="{zaznaczone: widocznosc == 'active'}">Aktywne</a></li>
+					<li><a href="#/completed" :class="{zaznaczone: widocznosc == 'completed'}">Ukończone</a></li>
 				</ul>
 				<button class="usun-ukonczone" @click="usunUkonczone" v-show="zadania.length > pozostalo">
 					Usuń ukończone
