@@ -40,7 +40,7 @@
 				handler: skladZadan.save
 			}
 		},
-
+		
 		// computed properties
 		// http://vuejs.org/guide/computed.html
 		computed: {
